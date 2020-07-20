@@ -1,4 +1,11 @@
 Spree::Core::Engine.add_routes do
+  namespace :v2 do
+    namespace :storefront do
+      resource :reviews, controller: :reviews, only: %i[show] do
+      end
+    end
+  end
+
   namespace :admin do
     resources :reviews, only: [:index, :destroy, :edit, :update] do
       member do
