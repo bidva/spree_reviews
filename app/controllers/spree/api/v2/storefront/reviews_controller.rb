@@ -6,17 +6,7 @@ module Spree
             before_action :require_spree_current_user
   
             def show
-              render_serialized_payload { serialize_resource(resource) }
-            end
-  
-            private
-  
-            def resource
-              spree_current_user
-            end
-  
-            def resource_serializer
-              Spree::Api::Dependencies.storefront_user_serializer.constantize
+              render json: {data: 'test'}
             end
           end
         end
