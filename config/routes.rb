@@ -17,7 +17,9 @@ Spree::Core::Engine.add_routes do
   namespace :api, defaults: { format: 'json' } do
     namespace :v2 do
       namespace :storefront do
-        resource :reviews, controller: :reviews, only: %i[show]
+        resources :products, only: [] do
+          resources :reviews, controller: :reviews, only: [:create, :show, :index]
+        end
       end
     end
   end
